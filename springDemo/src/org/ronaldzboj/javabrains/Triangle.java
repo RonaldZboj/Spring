@@ -8,8 +8,11 @@ public class Triangle {
 	private Point pointC;
 	
 	public void draw() {
+		System.out.println("Point A = (" + getPointA().getX() + ", " + getPointA().getY() + ")");
+		System.out.println("Point B = (" + getPointB().getX() + ", " + getPointB().getY() + ")");
+		System.out.println("Point C = (" + getPointC().getX() + ", " + getPointC().getY() + ")");
 
-		}
+	}
 
 	public Point getPointA() {
 		return pointA;
