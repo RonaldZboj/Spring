@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans default-init-method="myInit" default-destroy-method="cleanUp" 
+	xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
-	<bean id="triangle" class='org.ronaldzboj.javabrains.Triangle' autowire="byName">
 
+	<bean id="triangle" class='org.ronaldzboj.javabrains.Triangle' autowire="byName" >
+		<property name="pointA" ref="pointA"></property>
+		<property name="pointB" ref="pointB"></property>
+		<property name="pointC" ref="pointC"></property>
 	</bean>
 	
 	<bean id="pointA" class="org.ronaldzboj.javabrains.Point">
-		<property name="x" value = "0"></property>
-		<property name="y" value = "0"></property>
+		<property name="x" value = "${pointA.pointX}"></property>
+		<property name="y" value = "${pointA.pointY}"></property>
 	</bean>
 	
 	<bean id="pointB" class="org.ronaldzboj.javabrains.Point">
@@ -24,5 +28,13 @@
 		<property name="y" value = "-20"></property>
 	</bean>
 	
+		<bean id="circle" class='org.ronaldzboj.javabrains.Circle' >
+		<property name="center" ref="pointA"></property>
+	</bean>
+	
+	<bean class="org.ronaldzboj.javabrains.MyBeanFactoryPP"></bean>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointsconfig.proporties"></property>
+	</bean>
 
  </beans>
