@@ -28,7 +28,7 @@
 		<property name="y" value = "-20"></property>
 	</bean>
 	
-		<bean id="circle" class='org.ronaldzboj.javabrains.Circle' >
+	<bean id="circle" class='org.ronaldzboj.javabrains.Circle' >
 		<property name="center" ref="pointA"></property>
 	</bean>
 	
